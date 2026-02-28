@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){
+      if (location.pathname !== '/' && location.pathname.endsWith('index.html')) {
+        location.replace(location.origin + '/' + location.hash);
+        return;
+      }
+      var t = localStorage.getItem('resume-theme');
+      if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <title>赵盟熙 | 市场营销与运营从业者 - 个人简历网站</title>
+  <meta name="description" content="赵盟熙，四川大学商学院市场营销本科，持续学习营销与运营，具备数据思维与完整项目实践经验。">
+  <meta name="keywords" content="赵盟熙, 市场营销, 运营, 四川大学, 应届生, 实习, 营销策划, 电商运营">
+  <meta name="author" content="赵盟熙">
+  <!-- Open Graph -->
+  <meta property="og:title" content="赵盟熙 | 市场营销与运营从业者 - 个人简历网站">
+  <meta property="og:description" content="持续学习营销运营领域，具备从0到1的全链路运营能力与数据化营销思维，四川大学本科在读。">
+  <meta property="og:type" content="website">
+  <!-- 分享预览图：将 og-image.jpg 放在 images 文件夹，部署后把下面 content 改成你的完整网址，如 https://你的域名.vercel.app/images/og-image.jpg -->
+  <meta property="og:image" content="images/og-image.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="赵盟熙 | 市场营销与运营从业者">
+  <meta name="twitter:image" content="images/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "赵盟熙",
+    "email": "zhaomengxi@stu.scu.edu.cn",
+    "telephone": "+8615528498279",
+    "jobTitle": "市场营销与运营从业者",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "四川大学商学院",
+      "sameAs": "https://www.scu.edu.cn"
+    },
+    "knowsAbout": ["市场营销", "品牌运营", "用户运营", "电商运营", "数据分析"],
+    "description": "数据驱动营销人，全链路运营操盘手，四川大学市场营销本科在读，GPA 3.7/4.0。"
+  }
+  </script>
+</head>
+<body>
+  <!-- 滚动进度条 -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- 模块一：全局导航栏 -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="主导航">
+      <a href="#hero" class="nav-brand">赵盟熙 | 市场营销</a>
+      <ul class="nav-menu" role="menubar">
+        <li><a href="#hero" class="nav-link" data-section="hero">首页</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">关于我</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">教育背景</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">实习经历</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">项目作品</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">专业技能</a></li>
+        <li><a href="#awards" class="nav-link" data-section="awards">荣誉资质</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">联系我</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" id="theme-toggle" class="btn-icon" aria-label="切换浅色/深色主题">
+          <i class="fas fa-sun theme-icon theme-icon-light" aria-hidden="true"></i>
+          <i class="fas fa-moon theme-icon theme-icon-dark" aria-hidden="true"></i>
+        </button>
+        <div class="nav-cta-wrap">
+          <button type="button" id="pdf-menu-trigger" class="btn btn-primary">下载PDF简历</button>
+          <div id="pdf-dropdown" class="pdf-dropdown" hidden>
+            <a href="resume.pdf" download="赵盟熙-简历.pdf" class="pdf-dropdown-item"><i class="fas fa-download"></i> 下载PDF</a>
+            <a href="resume.pdf" target="_blank" rel="noopener" class="pdf-dropdown-item"><i class="fas fa-external-link-alt"></i> 在线预览</a>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <!-- 移动端侧边栏 -->
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <aside class="nav-sidebar" id="nav-sidebar" aria-label="移动端导航">
+      <button type="button" class="nav-close" id="nav-close" aria-label="关闭菜单"><i class="fas fa-times"></i></button>
+      <ul class="nav-sidebar-menu">
+        <li><a href="#hero" class="nav-sidebar-link">首页</a></li>
+        <li><a href="#about" class="nav-sidebar-link">关于我</a></li>
+        <li><a href="#education" class="nav-sidebar-link">教育背景</a></li>
+        <li><a href="#experience" class="nav-sidebar-link">实习经历</a></li>
+        <li><a href="#projects" class="nav-sidebar-link">项目作品</a></li>
+        <li><a href="#skills" class="nav-sidebar-link">专业技能</a></li>
+        <li><a href="#awards" class="nav-sidebar-link">荣誉资质</a></li>
+        <li><a href="#contact" class="nav-sidebar-link">联系我</a></li>
+      </ul>
+      <a href="resume.pdf" download="赵盟熙-简历.pdf" class="btn btn-primary nav-sidebar-cta">下载PDF简历</a>
+      <div class="nav-sidebar-contact">
+        <a href="mailto:zhaomengxi@stu.scu.edu.cn"><i class="fas fa-envelope"></i> zhaomengxi@stu.scu.edu.cn</a>
+        <a href="tel:+8615528498279"><i class="fas fa-phone"></i> (+86)15528498279</a>
+      </div>
+    </aside>
+  </header>
+
+  <main>
+    <!-- 模块二：英雄区 -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <p class="hero-greeting">您好，我是</p>
+          <h1 id="hero-title" class="hero-title">赵盟熙</h1>
+          <p class="hero-tagline">数据驱动的<em>市场营销与运营</em>学习者 | 四川大学本科在读</p>
+          <p class="hero-desc">持续学习营销运营领域，具备从0到1的全链路运营能力与数据化营销思维，拥有头部企业实习经历与完整项目操盘经验，专注于用数据驱动业务增长，用策略创造实际价值。</p>
+          <div class="hero-buttons">
+            <a href="#experience" class="btn btn-primary">查看我的经历</a>
+            <a href="#contact" class="btn btn-secondary">联系我</a>
+          </div>
+          <div class="hero-contact-icons">
+            <a href="mailto:zhaomengxi@stu.scu.edu.cn" class="hero-icon" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+8615528498279" class="hero-icon" aria-label="电话"><i class="fas fa-phone"></i></a>
+            <a href="#" class="hero-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="hero-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-avatar-wrap">
+            <img src="images/avatar.png" alt="赵盟熙" class="hero-avatar-img" id="hero-avatar-img">
+            <div class="hero-avatar"></div>
+            <div class="hero-badge hero-badge-1">GPA 3.7/4.0</div>
+            <div class="hero-badge hero-badge-2">3段头部实习</div>
+            <div class="hero-badge hero-badge-3">5个完整项目</div>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="hero-scroll-indicator" aria-label="向下滚动">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- 模块三：关于我 -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="about-title" class="section-title">关于我</h2>
+          <p class="section-subtitle">我的职业理念与核心优势</p>
+        </header>
+        <div class="about-grid">
+          <div class="about-intro observe">
+            <h3 class="about-intro-head">专业背景</h3>
+            <p>商科专业基础扎实，持续学习市场营销与运营领域，具备多段头部企业实习与完整项目操盘经验。</p>
+            <h3 class="about-intro-head">核心能力</h3>
+            <p>擅长以数据驱动决策，可独立完成从用户调研、策略制定、落地执行到数据复盘的全链路运营工作。具备丰富的团队管理与跨部门协作经验。</p>
+            <h3 class="about-intro-head">职业理念</h3>
+            <p>逻辑思维严谨，文笔优秀，沟通表达能力突出，拥有极强的执行力与快速学习能力，能够快速适配岗位需求，为团队创造实际价值。</p>
+          </div>
+          <div class="about-cards">
+            <article class="card about-card observe">
+              <i class="fas fa-chart-line about-card-icon" aria-hidden="true"></i>
+              <h4 class="about-card-title">数据驱动决策</h4>
+              <p>熟练使用Excel、Python、SPSS等工具完成用户行为分析、运营数据复盘与ROI测算，用数据支撑策略优化。</p>
+            </article>
+            <article class="card about-card observe">
+              <i class="fas fa-link about-card-icon" aria-hidden="true"></i>
+              <h4 class="about-card-title">全链路运营</h4>
+              <p>从0到1搭建私域社群与校园大使网络，具备电商选品、投放、活动策划到复盘的完整操盘经验。</p>
+            </article>
+            <article class="card about-card observe">
+              <i class="fas fa-users about-card-icon" aria-hidden="true"></i>
+              <h4 class="about-card-title">跨团队协作</h4>
+              <p>协同产品部门落地功能迭代，统筹5人项目团队分工与进度，协调内外部资源保障高质量交付。</p>
+            </article>
+            <article class="card about-card observe">
+              <i class="fas fa-bolt about-card-icon" aria-hidden="true"></i>
+              <h4 class="about-card-title">快速落地执行</h4>
+              <p>主导拉新裂变、线下宣讲、门店运营等多类项目，活动到场率超预期150%，拉新转化率提升25%。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块四：教育背景 -->
+    <section class="section education" id="education" aria-labelledby="edu-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="edu-title" class="section-title">教育背景</h2>
+          <p class="section-subtitle">四川大学商学院 | 市场营销本科 2023.09-2027.06</p>
+        </header>
+        <div class="edu-layout">
+          <div class="card edu-card observe">
+            <div class="edu-card-icon-wrap"><i class="fas fa-university" aria-hidden="true"></i></div>
+            <h3 class="edu-card-school">四川大学</h3>
+            <p class="edu-card-major">市场营销本科</p>
+            <p class="edu-card-gpa">GPA 3.7/4.0 | 专业前15%</p>
+            <p class="edu-card-courses">核心课程均分90+</p>
+          </div>
+          <div class="edu-detail observe">
+            <h4 class="edu-detail-head">核心专业课程</h4>
+            <div class="edu-tags">
+              <span>市场营销</span><span>AI营销</span><span>数据分析与Python应用</span><span>人力资源管理</span><span>市场调查</span><span>营销策划</span><span>消费者行为学</span><span>品牌管理</span>
+            </div>
+            <h4 class="edu-detail-head">语言能力</h4>
+            <p class="edu-lang">具备日常英文沟通能力与英文专业文献阅读、撰写能力，可在学习与工作场景中顺畅交流。</p>
+            <h4 class="edu-detail-head">在校经历</h4>
+            <ul class="edu-list">
+              <li>校主持队核心成员，累计主持3000人以上大型晚会5场</li>
+              <li>院篮球队队长</li>
+              <li>学生会实践部干事，成功为校园活动拉取5000元物资赞助</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块五：实习经历 -->
+    <section class="section experience" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="exp-title" class="section-title">实习经历</h2>
+          <p class="section-subtitle">从实践中沉淀能力，用结果证明价值</p>
+        </header>
+        <div class="timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <article class="timeline-item timeline-item-left observe" data-index="0">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="card timeline-card">
+              <h3 class="timeline-company">成都萌想科技（实习僧）</h3>
+              <p class="timeline-role">高校运营实习生 | 2025.07-2025.11</p>
+              <div class="timeline-toggle-wrap">
+                <ul class="timeline-list">
+                  <li>用户研究与数据分析：设计并发放<strong>500份</strong>有效调研问卷，完成<strong>20场</strong>高校学生深度访谈，通过Excel数据透视表完成用户行为全维度分析，输出<strong>3份</strong>专业调研报告，精准定位大学生求职核心痛点</li>
+                  <li>私域运营体系搭建：从0到1搭建秋招社群与校园大使网络，全川高校覆盖<strong>1500+</strong>应届毕业生，制定标准化社群运营SOP，使社群日常活跃度稳定在<strong>40%</strong>，用户留存率高达<strong>85%</strong></li>
+                  <li class="timeline-list-more">拉新裂变活动策划：主导策划「内推码裂变」专项拉新活动，实现单日新增精准用户<strong>300+</strong>，拉新转化率较往期提升<strong>25%</strong></li>
+                  <li class="timeline-list-more">跨部门产品协同：协同产品部门落地<strong>2项</strong>核心功能优化迭代，基于用户调研反馈提出产品改进方案</li>
+                </ul>
+                <button type="button" class="timeline-expand-btn" aria-expanded="false">展开详情</button>
+                <div class="timeline-tags">
+                  <span>用户研究</span><span>私域运营</span><span>活动策划</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-item-right observe" data-index="1">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="card timeline-card">
+              <h3 class="timeline-company">歪马送酒（美团旗下）</h3>
+              <p class="timeline-role">实习店长 | 2024.08-2024.11</p>
+              <ul class="timeline-list">
+                <li>门店团队与流程管理：协助店长管理门店日常全链路运营，协调<strong>10-15人</strong>一线团队的排班与任务分配，优化门店交接班工作流程，使跨岗位交接效率提升<strong>20%</strong></li>
+                <li>库存与订单管理：独立负责门店全品类库存盘点与每日订单核对工作，库存与订单数据误差率控制在<strong>0.5%</strong>以内，有效降低门店滞销品占比<strong>15%</strong></li>
+                <li class="timeline-list-more">用户拉新与业绩增长：独立完成门店线下拉新业绩目标，通过社区地推、周边商户联动等活动精准触达新客户，助力门店月度销售额稳步增长</li>
+              </ul>
+              <button type="button" class="timeline-expand-btn" aria-expanded="false">展开详情</button>
+              <div class="timeline-tags">
+                <span>团队管理</span><span>库存管理</span><span>拉新增长</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-item-left observe" data-index="2">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="card timeline-card">
+              <h3 class="timeline-company">高顿教育</h3>
+              <p class="timeline-role">校园代理负责人 | 2023.09-2023.12</p>
+              <ul class="timeline-list">
+                <li>线下活动全案策划：策划并落地<strong>3场</strong>200+人规模的线下校园宣讲会，活动实际到场率超预期<strong>150%</strong>，活动累计新增潜在学员<strong>80+</strong></li>
+                <li>新媒体内容运营：独立运营高顿教育校园官方小红书账号，产出<strong>10篇</strong>原创财经考证干货笔记，单篇笔记最高曝光量<strong>10w+</strong>，笔记平均互动率<strong>8%</strong>（行业平均水平仅5%），累计引流付费用户<strong>15人</strong></li>
+                <li class="timeline-list-more">私域社群运营：管理<strong>3个</strong>百人级学员学习社群，制定「每日学习打卡+每周干货分享+定期答疑直播」的标准化运营SOP</li>
+              </ul>
+              <button type="button" class="timeline-expand-btn" aria-expanded="false">展开详情</button>
+              <div class="timeline-tags">
+                <span>活动策划</span><span>内容运营</span><span>社群运营</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块六：项目作品 -->
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="projects-title" class="section-title">项目作品</h2>
+          <p class="section-subtitle">全链路项目操盘，从策略到落地的完整实践</p>
+        </header>
+        <div class="projects-filters observe">
+          <button type="button" class="filter-btn active" data-filter="all">全部</button>
+          <button type="button" class="filter-btn" data-filter="营销策划">营销策划</button>
+          <button type="button" class="filter-btn" data-filter="电商运营">电商运营</button>
+          <button type="button" class="filter-btn" data-filter="校园运营">校园运营</button>
+        </div>
+        <div class="projects-grid">
+          <article class="card project-card observe" data-category="营销策划" tabindex="0">
+            <div class="project-cover project-cover-1">
+              <img src="images/project1.jpg" alt="" class="project-cover-img" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">五酿公司营销策划全案</h3>
+              <p class="project-meta">2025.09-2025.11 | 核心策划负责人</p>
+              <p class="project-desc">市场调研、目标客群定位、核心营销策略撰写，方案获客户官方采纳并落地执行。</p>
+              <ul class="project-highlights">
+                <li>方案获<strong>四川五酿藏酒</strong>官方采纳并落地</li>
+                <li>统筹<strong>5人</strong>项目团队分工与进度</li>
+                <li>市场分析、客群定位、营销策略三大章节主笔</li>
+              </ul>
+              <div class="project-tags"><span>营销策划</span><span>市场调研</span><span>团队协作</span></div>
+            </div>
+          </article>
+          <article class="card project-card observe" data-category="电商运营" tabindex="0">
+            <div class="project-cover project-cover-2">
+              <img src="images/project2.jpg" alt="" class="project-cover-img" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">国内抖店独立店铺全链路运营</h3>
+              <p class="project-meta">2024.07-2024.12 | 店铺运营负责人</p>
+              <p class="project-desc">抖音小店日常运营、巨量千川投放、大促活动策划，投放效率与销售额双提升。</p>
+              <ul class="project-highlights">
+                <li>投放效率提升<strong>20%</strong>，转化成本降低<strong>15%</strong></li>
+                <li>日均订单量增长<strong>30%</strong>，月度销售额提升<strong>40%</strong></li>
+                <li>商品SEO与详情页优化，提升点击率与转化率</li>
+              </ul>
+              <div class="project-tags"><span>电商运营</span><span>巨量千川</span><span>活动策划</span></div>
+            </div>
+          </article>
+          <article class="card project-card observe" data-category="电商运营" tabindex="0">
+            <div class="project-cover project-cover-3">
+              <img src="images/project3.jpg" alt="" class="project-cover-img" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">跨境电商运营（泰国市场）</h3>
+              <p class="project-meta">2024.01-2024.06 | 选品与运营负责人</p>
+              <p class="project-desc">Shopee泰国站选品、库存与供应链管理、店铺数据运营，提升GMV与利润率。</p>
+              <ul class="project-highlights">
+                <li>完成<strong>120+</strong>SKU筛选、优化与上架</li>
+                <li>ERP库存动态管理，降低滞销库存比例</li>
+                <li>每周数据复盘，持续优化店铺运营策略</li>
+              </ul>
+              <div class="project-tags"><span>跨境电商</span><span>选品</span><span>数据运营</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目详情模态框 -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button type="button" class="modal-close" id="modal-close" aria-label="关闭"><i class="fas fa-times"></i></button>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- 模块七：专业技能 -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="skills-title" class="section-title">专业技能</h2>
+          <p class="section-subtitle">沉淀专业能力，打造核心竞争力</p>
+        </header>
+        <div class="skills-layout">
+          <div class="skills-tabs-wrap observe">
+            <div class="skills-tabs" role="tablist">
+              <button type="button" class="skills-tab active" role="tab" data-tab="data" aria-selected="true">数据分析能力</button>
+              <button type="button" class="skills-tab" role="tab" data-tab="office" aria-selected="false">办公与文档能力</button>
+              <button type="button" class="skills-tab" role="tab" data-tab="marketing" aria-selected="false">营销与运营能力</button>
+              <button type="button" class="skills-tab" role="tab" data-tab="design" aria-selected="false">设计与工具能力</button>
+              <button type="button" class="skills-tab" role="tab" data-tab="soft" aria-selected="false">综合软技能</button>
+            </div>
+          </div>
+          <div class="skills-panels">
+            <div class="skills-panel active" id="panel-data" role="tabpanel">
+              <div class="skill-item observe"><span class="skill-name">EViews 13 / SPSS 统计分析</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+              <div class="skill-item observe"><span class="skill-name">Python（Pandas/Numpy）数据处理</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+              <div class="skill-item observe"><span class="skill-name">SQL 基础、爬虫（Requests/BeautifulSoup）</span><div class="skill-bar"><span class="skill-fill" data-value="60"></span></div><span class="skill-level">掌握</span></div>
+              <div class="skill-item observe"><span class="skill-name">用户行为分析、运营复盘、GMV/ROI 测算</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+            </div>
+            <div class="skills-panel" id="panel-office" role="tabpanel" hidden>
+              <div class="skill-item observe"><span class="skill-name">Excel（透视表、VLOOKUP、高级函数、图表）</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">PPT（商业报告、方案演示、可视化排版）</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">Word / 飞书（公文、方案排版、协同）</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+            </div>
+            <div class="skills-panel" id="panel-marketing" role="tabpanel" hidden>
+              <div class="skill-item observe"><span class="skill-name">私域社群全链路运营</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">新媒体内容运营、线下活动全案策划</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">电商平台全链路运营、付费广告投放</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">用户研究与市场调研</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+            </div>
+            <div class="skills-panel" id="panel-design" role="tabpanel" hidden>
+              <div class="skill-item observe"><span class="skill-name">PS（图片设计、详情页、海报）</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+              <div class="skill-item observe"><span class="skill-name">秀米图文排版</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+              <div class="skill-item observe"><span class="skill-name">巨量引擎、巨量千川投流</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">Shopee、抖音电商后台</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+            </div>
+            <div class="skills-panel" id="panel-soft" role="tabpanel" hidden>
+              <div class="skill-item observe"><span class="skill-name">逻辑思维、文案撰写、沟通表达</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">跨部门协作、快速学习、项目统筹</span><div class="skill-bar"><span class="skill-fill" data-value="100"></span></div><span class="skill-level">精通</span></div>
+              <div class="skill-item observe"><span class="skill-name">大型活动主持、临场应变</span><div class="skill-bar"><span class="skill-fill" data-value="80"></span></div><span class="skill-level">熟练</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块八：荣誉与资质 -->
+    <section class="section awards" id="awards" aria-labelledby="awards-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="awards-title" class="section-title">荣誉与资质</h2>
+          <p class="section-subtitle">官方权威认证，能力的直接佐证</p>
+        </header>
+        <div class="awards-grid">
+          <article class="card award-card award-card-with-img observe">
+            <a href="images/certificate-wuniang.png" target="_blank" rel="noopener" class="award-cert-link" title="查看证明">
+              <img src="images/certificate-wuniang.png" alt="五酿公司营销策划方案采纳证明" class="award-cert-img" loading="lazy">
+            </a>
+            <h4 class="award-name">营销策划方案官方采纳证明</h4>
+            <p class="award-org">四川五酿藏酒供应链管理有限公司</p>
+            <p class="award-time">2025</p>
+          </article>
+          <article class="card award-card award-card-with-img observe">
+            <a href="images/certificate-mengxiang.png" target="_blank" rel="noopener" class="award-cert-link" title="查看证明">
+              <img src="images/certificate-mengxiang.png" alt="萌想科技高校运营实习生实习证明" class="award-cert-img" loading="lazy">
+            </a>
+            <h4 class="award-name">高校运营实习生实习证明</h4>
+            <p class="award-org">成都萌想科技有限责任公司</p>
+            <p class="award-time">2025</p>
+          </article>
+          <article class="card award-card award-card-with-img observe">
+            <a href="images/certificate-gaodun.png" target="_blank" rel="noopener" class="award-cert-link" title="查看证书">
+              <img src="images/certificate-gaodun.png" alt="高顿ACCA品牌主理人实训证书" class="award-cert-img" loading="lazy">
+            </a>
+            <h4 class="award-name">ACCA品牌主理人线上实训项目合格证书</h4>
+            <p class="award-org">高顿教育</p>
+            <p class="award-time">2023</p>
+          </article>
+          <article class="card award-card observe">
+            <i class="fas fa-award award-icon" aria-hidden="true"></i>
+            <h4 class="award-name">四川大学本科在读学业优秀证明</h4>
+            <p class="award-org">GPA 3.7/4.0，专业前15%</p>
+            <p class="award-time">在读</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块九：联系我 -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-header observe">
+          <h2 id="contact-title" class="section-title">联系我</h2>
+          <p class="section-subtitle">期待与您相遇，共同创造价值</p>
+        </header>
+        <div class="contact-grid">
+          <div class="contact-info observe">
+            <a href="mailto:zhaomengxi@stu.scu.edu.cn" class="contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <div>
+                <span class="contact-item-label">邮箱</span>
+                <span class="contact-item-value">zhaomengxi@stu.scu.edu.cn</span>
+              </div>
+            </a>
+            <a href="tel:+8615528498279" class="contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <div>
+                <span class="contact-item-label">电话</span>
+                <span class="contact-item-value">(+86)15528498279</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <div>
+                <span class="contact-item-label">所在城市</span>
+                <span class="contact-item-value">四川成都</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-briefcase" aria-hidden="true"></i>
+              <div>
+                <span class="contact-item-label">求职状态</span>
+                <span class="contact-item-value">2027届应届生，可随时到岗实习</span>
+              </div>
+            </div>
+          </div>
+          <form id="contact-form" class="contact-form observe" novalidate>
+            <div class="form-group">
+              <label for="form-name">姓名 <span class="required">*</span></label>
+              <input type="text" id="form-name" name="name" placeholder="请输入您的姓名" required autocomplete="name">
+              <span class="form-error" id="error-name" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="form-email">邮箱 <span class="required">*</span></label>
+              <input type="email" id="form-email" name="email" placeholder="请输入您的联系邮箱" required autocomplete="email">
+              <span class="form-error" id="error-email" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="form-subject">留言主题 <span class="required">*</span></label>
+              <select id="form-subject" name="subject" required>
+                <option value="">请选择</option>
+                <option value="实习邀约">实习邀约</option>
+                <option value="面试邀请">面试邀请</option>
+                <option value="项目合作">项目合作</option>
+                <option value="其他咨询">其他咨询</option>
+              </select>
+              <span class="form-error" id="error-subject" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="form-message">留言内容 <span class="required">*</span></label>
+              <textarea id="form-message" name="message" rows="4" placeholder="请输入您的留言内容，我会尽快回复您" required></textarea>
+              <span class="form-error" id="error-message" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="form-submit">发送留言</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 提交成功弹窗 -->
+    <div id="submit-toast" class="toast" role="alert" aria-live="polite" hidden>
+      <i class="fas fa-check-circle"></i>
+      <span>留言发送成功！我会尽快与您取得联系</span>
+    </div>
+  </main>
+
+  <!-- 模块十：页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">赵盟熙</p>
+      <p class="footer-tagline">数据驱动的市场营销与运营从业者</p>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="#about">关于我</a>
+        <a href="#experience">实习经历</a>
+        <a href="#projects">项目作品</a>
+        <a href="#contact">联系我</a>
+      </nav>
+      <p class="footer-copy">© 2024 赵盟熙. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
